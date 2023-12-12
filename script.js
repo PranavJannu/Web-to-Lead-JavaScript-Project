@@ -1,10 +1,20 @@
-function beforesubmit()
+let capthachecked = false;
+function beforesubmit(event)
 {
-    let outputdate = document.querySelector(".outputdate");
-    let inputdate = document.querySelector(".inputdate");
-    console.log("Inputdate : ", inputdate.value); //Getting date into String => now to convert string to date
-    let formattedDate = new Date(inputdate.value).toLocaleDateString("en-US");
-    outputdate.value = formattedDate;
+    if(capthachecked)
+    {
+        let outputdate = document.querySelector(".outputdate");
+        let inputdate = document.querySelector(".inputdate");
+        console.log("Inputdate : ", inputdate.value); //Getting date into String => now to convert string to date
+        let formattedDate = new Date(inputdate.value).toLocaleDateString("en-US");
+        outputdate.value = formattedDate;
+    }
+    else
+    {
+        alert("Please check reCAPTCHA box");
+        event.preventDefault();
+    }
+    
 }
 
 function timestamp() 
@@ -18,3 +28,4 @@ function timestamp()
     } 
 } 
 setInterval(timestamp, 500); 
+
