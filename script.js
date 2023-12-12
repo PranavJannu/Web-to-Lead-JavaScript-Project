@@ -1,7 +1,7 @@
 let capthachecked = false;
-function beforesubmit(event)
+function beforesubmit()
 {
-    if(capthachecked == true)
+    if(capthachecked)
     {
         let outputdate = document.querySelector(".outputdate");
         let inputdate = document.querySelector(".inputdate");
